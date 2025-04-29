@@ -1,5 +1,8 @@
-// Script untuk filter portfolio
+// Script untuk filter portfolio dan animasi
 document.addEventListener('DOMContentLoaded', function() {
+    // Inisialisasi animasi untuk elemen dengan data-animate atribut
+    initAnimations();
+    
     // Filter buttons functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     
@@ -18,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links with animasi
     const navLinks = document.querySelectorAll('nav a');
     
     navLinks.forEach(link => {
@@ -32,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: targetSection.offsetTop,
                 behavior: 'smooth'
             });
+            
+            // Trigger animations when navigating to new section
+            animateSectionElements(targetId.substring(1));
         });
     });
     
@@ -41,43 +47,93 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Form submitted! (This is just a demo)');
-            this.reset();
+            
+            // Animasi tombol submit saat diklik
+            const submitBtn = this.querySelector('.form-btn');
+            submitBtn.classList.add('animate__animated', 'animate__bounceIn');
+            
+            setTimeout(() => {
+                alert('Form submitted! (This is just a demo)');
+                this.reset();
+                submitBtn.classList.remove('animate__bounceIn');
+            }, 800);
         });
     }
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all tab buttons
-    const tabButtons = document.querySelectorAll('.tab-btn');
     
-    // Add click event listeners to each tab button
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get the category from the button text
-            const category = this.textContent.trim().toLowerCase();
-            
-            // Get all gallery items
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            // Show all items if "ALL" is selected, otherwise filter by category
-            galleryItems.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
+    // Animasi saat scroll
+    window.addEventListener('scroll', scrollAnimations);
 });
+
+// Fungsi untuk menginisialisasi animasi
+function initAnimations() {
+    // Animasi untuk elemen header saat halaman dimuat
+    document.querySelectorAll('.section-header h2').forEach(el => {
+        el.classList.add('animate__animated', 'animate__fadeIn');
+    });
+    
+    // Inisialisasi library WOW.js untuk animasi scroll
+    new WOW({
+        boxClass: 'animate__animated',
+        animateClass: 'animate__animated',
+        offset: 100,
+        mobile: true,
+        live: true
+    }).init();
+}
+
+// Fungsi untuk animasi scroll
+function scrollAnimations() {
+    const sections = document.querySelectorAll('section[id]');
+    
+    let scrollY = window.pageYOffset;
+    
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            // Add active class to navigation item
+            document.querySelector('nav a[href*=' + sectionId + ']').classList.add('active');
+            
+            // Animasi elemen dalam section yang terlihat
+            animateSectionElements(sectionId);
+        } else {
+            document.querySelector('nav a[href*=' + sectionId + ']').classList.remove('active');
+        }
+    });
+}
+
+// Fungsi untuk animasi elemen dalam section saat scroll
+function animateSectionElements(sectionId) {
+    const section = document.getElementById(sectionId);
+    
+    if (!section) return;
+    
+    // Animasi elemen dengan data-animate atribut
+    const animatedElements = section.querySelectorAll('[data-animate]');
+    
+    animatedElements.forEach(el => {
+        if (!el.classList.contains('animated-in')) {
+            const animationName = el.getAttribute('data-animate');
+            const delay = el.getAttribute('data-delay') || 0;
+            
+            setTimeout(() => {
+                el.classList.add('animate__' + animationName, 'animated-in');
+                
+                // Reset animasi setelah selesai
+                el.addEventListener('animationend', function() {
+                    // Untuk animasi yang perlu diulang, tambahkan kembali class nya disini
+                    if (el.classList.contains('animate__infinite')) {
+                        return;
+                    }
+                });
+            }, delay);
+        }
+    });
+}
+
+// Filter portfolio
 document.addEventListener('DOMContentLoaded', () => {
     // === Filter Portfolio ===
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -92,39 +148,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = button.dataset.category;
 
             galleryItems.forEach(item => {
-                // Animasi keluar
-                item.style.opacity = '0';
-                setTimeout(() => {
-                    if (category === 'all' || item.dataset.category === category) {
-                        item.style.display = 'block';
-                        setTimeout(() => item.style.opacity = '1', 100);
-                    } else {
+                // Animasi keluar dan masuk untuk item galeri
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.remove('animate__fadeOut');
+                    item.classList.add('animate__fadeIn');
+                    item.style.display = 'block';
+                } else {
+                    item.classList.remove('animate__fadeIn');
+                    item.classList.add('animate__fadeOut');
+                    setTimeout(() => {
                         item.style.display = 'none';
-                    }
-                }, 200);
+                    }, 500);
+                }
             });
         });
     });
 
-    // === Smooth Scroll for Navigation Links ===
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const target = document.querySelector(targetId);
-
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 60,
-                    behavior: 'smooth'
-                });
-            }
+    // Animasi hover untuk item galeri
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('animate__pulse');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('animate__pulse');
         });
     });
 
-    // === ScrollSpy: Highlight active nav on scroll ===
+    // ScrollSpy: Highlight active nav dan animasi pada scroll
     const sections = document.querySelectorAll('section[id]');
 
     window.addEventListener('scroll', () => {
@@ -142,18 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         link.classList.add('active');
                     }
                 });
+                
+                // Trigger animasi untuk section yang sedang aktif
+                animateSectionElements(sectionId);
             }
         });
     });
-
-    // === Form Submission (Demo) ===
-    const contactForm = document.querySelector('.contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', e => {
-            e.preventDefault();
-            alert('Form submitted! (This is just a demo)');
-            contactForm.reset();
-        });
-    }
 });

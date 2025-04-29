@@ -6,19 +6,21 @@
     <title>Portfolio Selly</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tambahkan Library Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
+    <div class="sidebar animate__animated animate__fadeInLeft">
         <div class="profile-section">
-            <img src="img/foto elma.jpg" alt="Profile Photo" class="profile-photo">
+            <img src="img/foto elma.jpg" alt="Profile Photo" class="profile-photo animate__animated animate__pulse animate__delay-1s">
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT ME</a></li>
-                <li><a href="#portfolio">PORTFOLIO</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#home" class="animate__animated animate__fadeIn animate__delay-1s">HOME</a></li>
+                <li><a href="#about" class="animate__animated animate__fadeIn animate__delay-1s">ABOUT ME</a></li>
+                <li><a href="#portfolio" class="animate__animated animate__fadeIn animate__delay-1s">PORTFOLIO</a></li>
+                <li><a href="#contact" class="animate__animated animate__fadeIn animate__delay-1s">CONTACT</a></li>
             </ul>
         </nav>
     </div>
@@ -28,9 +30,9 @@
         <!-- Hero Section -->
         <section id="home" class="section hero-section">
             <div class="hero-container">
-                <div class="hero-content">
-                    <h1>HI THERE!</h1>
-                    <p class="subtitle">I'M <span class="highlight">ELMA</span></p>
+                <div class="hero-content animate__animated animate__fadeIn animate__slower">
+                    <h1 class="animate__animated animate__fadeInDown animate__delay-1s">HI THERE!</h1>
+                    <p class="subtitle animate__animated animate__fadeInUp animate__delay-2s">I'M <span class="highlight">ELMA</span></p>
                 </div>
             </div>
         </section>
@@ -39,50 +41,50 @@
             
             */
         </style>
-        <div class="hero-watermark">elmaallolangi</div>
+        <div class="hero-watermark animate__animated animate__fadeIn animate__delay-3s">elmaallolangi</div>
 
 
         <!-- About Section -->
         <section id="about" class="section about-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>ABOUT ME!</h2>
+                    <h2 class="animate__animated animate__fadeIn" data-animate="fadeIn">ABOUT ME!</h2>
                 </div>
                 <div class="about-content">
-                    <div class="about-image">
+                    <div class="about-image animate__animated" data-animate="fadeInLeft">
                         <img src="img/foto elma.jpg" alt="Profile Photo" class="full-profile">
                     </div>
-                    <div class="about-text">
-                        <p>HI! Saya Elma,seorang mahasiswa di program studi bisnis DIGITAL yang memiliki ketertarikan besar dalam mengembangkan keterampilan di berbagai bidang terkait teknologi dan bisnis.</p>
-                        <p>Saya maniezz.</p>
+                    <div class="about-text animate__animated" data-animate="fadeInRight">
+                        <p>HI! Saya Elma, seorang mahasiswa di Program Studi Bisnis Digital yang memiliki ketertarikan besar dalam mengembangkan keterampilan di berbagai bidang terkait teknologi dan bisnis.</p>
+                    
                         
-                        <h3>What I Do?</h3>
+                        <h3 class="animate__animated" data-animate="fadeIn">What I Do?</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">
+                            <div class="skill-item animate__animated" data-animate="zoomIn" data-delay="0">
                                 <div class="skill-icon">
                                     <i class="fas fa-pen-nib"></i>
                                 </div>
                                 <h4>UI DESIGN</h4>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-item animate__animated" data-animate="zoomIn" data-delay="200">
                                 <div class="skill-icon">
                                     <i class="fas fa-dollar-sign"></i>
                                 </div>
                                 <h4>MANAGING FINANCE</h4>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-item animate__animated" data-animate="zoomIn" data-delay="400">
                                 <div class="skill-icon">
                                     <i class="fas fa-chart-pie"></i>
                                 </div>
                                 <h4>DATA ANALYST</h4>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-item animate__animated" data-animate="zoomIn" data-delay="600">
                                 <div class="skill-icon">
                                     <i class="fas fa-users-cog"></i>
                                 </div>
                                 <h4>DESIGNING A BUSINESS USING BMC</h4>
                             </div>
-                            <div class="skill-item" style="grid-column: span 2;">
+                            <div class="skill-item animate__animated" data-animate="zoomIn" data-delay="800" style="grid-column: span 2;">
                                 <div class="skill-icon">
                                     <i class="fas fa-code"></i>
                                 </div>
@@ -90,16 +92,18 @@
                             </div>
                         </div>
                         
-                        <p class="bottom-text">Dalam karirku yang berkaitan, saya bisa membuat desain yang menarik untuk pengguna dengan pengalaman yang interaktif dan beragam.</p>
+                        <p class="bottom-text animate__animated" data-animate="fadeIn">Dengan dedikasi yang konsisten, saya siap memberikan kontribusi terbaik dan menghadapi setiap tantangan dengan sikap positif.</p>
                         
-                    
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="section portfolio-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>MY PROJECT</h2>
+                    <h2 class="animate__animated" data-animate="fadeIn">MY PROJECT</h2>
                 </div>
                 <div class="tab-buttons">
                     
@@ -108,16 +112,16 @@
 
                 </div>
                 <div class="portfolio-gallery">
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="0">
                         <img src="img/foto flexi.jpg" alt="Project 1" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="200">
                         <img src="img/foto flexi 2.jpg" alt="Project 2" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="400">
                         <img src="img/foto flexi 3.jpg" alt="Project 3" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="600">
                         <img src="img/foto flexi 4.jpg" alt="Project 4" class="project-img">
                     </div>
                 </div>
@@ -128,7 +132,7 @@
         <section id="portfolio" class="section portfolio-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>MY PROJECT</h2>
+                    <h2 class="animate__animated" data-animate="fadeIn">MY PROJECT</h2>
                 </div>
                 <div class="tab-buttons">
                     
@@ -137,16 +141,16 @@
 
                 </div>
                 <div class="portfolio-gallery">
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="0">
                         <img src="img/foto data.jpg" alt="Project 1" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="200">
                         <img src="img/foto data 2.jpg" alt="Project 2" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="400">
                         <img src="img/foto data 3.jpg" alt="Project 3" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="600">
                         <img src="img/foto data 4.jpg" alt="Project 4" class="project-img">
                     </div>
                 </div>
@@ -157,7 +161,7 @@
         <section id="portfolio" class="section portfolio-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>BLOG</h2>
+                    <h2 class="animate__animated" data-animate="fadeIn">BLOG</h2>
                 </div>
                 <div class="tab-buttons">
                     
@@ -166,16 +170,16 @@
 
                 </div>
                 <div class="portfolio-gallery">
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="0">
                         <img src="img/BLOG1.png" alt="Project 1" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="200">
                         <img src="img/BLOG2.png" alt="Project 2" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="400">
                         <img src="img/BLOG3.png" alt="Project 3" class="project-img">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item animate__animated" data-animate="fadeInUp" data-delay="600">
                         <img src="img/BLOG4.png" alt="Project 4" class="project-img">
                     </div>
                 </div>
@@ -188,10 +192,10 @@
         <section id="contact" class="section contact-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>CONTACT</h2>
+                    <h2 class="animate__animated" data-animate="fadeIn">CONTACT</h2>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-form-container">
+                    <div class="contact-form-container animate__animated" data-animate="fadeInLeft">
                         <form class="contact-form">
                             <div class="form-group">
                                 <input type="text" placeholder="Your Name" class="form-input">
@@ -205,40 +209,40 @@
                             <div class="form-group">
                                 <textarea placeholder="Your Message" class="form-textarea"></textarea>
                             </div>
-                            <button type="submit" class="btn form-btn">SEND MESSAGE</button>
+                            <button type="submit" class="btn form-btn animate__animated animate__pulse animate__infinite animate__slower">SEND MESSAGE</button>
                         </form>
                     </div>
-                    <div class="contact-info">
+                    <div class="contact-info animate__animated" data-animate="fadeInRight">
                         <h3 class="info-title">LET'S WORK TOGETHER</h3>
                         
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="0">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Makassar, Indonesia</span>
                         </div>
                         
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="200">
                             <i class="fas fa-phone"></i>
                             <span>+62 821 2229 8957</span>
                         </div>
                         
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="400">
                             <i class="fas fa-envelope"></i>
                             <span>elma78693@gmail.com</span>
                         </div>
                         
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="600">
                             <i class="fas fa-globe"></i>
                             <span>https://elmaniezz14.blogspot.com/</span>
                         </div>
                     
                         <!-- Tambahan Instagram -->
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="800">
                             <i class="fab fa-instagram"></i>
                             <span>@elmaallolangi_</span>
                         </div>
                     
                         <!-- Tambahan LinkedIn -->
-                        <div class="info-item">
+                        <div class="info-item animate__animated" data-animate="fadeIn" data-delay="1000">
                             <i class="fab fa-linkedin"></i>
                             <span>Elma Allo Langi</span>
                         </div>
@@ -252,6 +256,7 @@
         </section>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
